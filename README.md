@@ -5,7 +5,7 @@
 因为感觉qqwry的海外IP不准，而MaxMind的中国IP不准。才这么搞。(再之前因为折腾NexusPHP PT站，新版本网站识别IP地址 用的是mmdb。)
 
 源ip库文件：  
-qqwary.dat，2024年4月24日版。MD5: c3ac7c7606bdfd83f31907f060b7b607  
+qqwry.dat，2024年4月24日版。MD5: c3ac7c7606bdfd83f31907f060b7b607  
 GeoLite2-City.mmdb 2024年5月01日版 MD5: b4e66cdb59dcb1297ffea4e8582e3540  
 GeoLite2-Country.mmdb 2024年5月01日版 MD5: b72b6db6d4b10ddec23daccd06145f90  
 
