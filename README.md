@@ -74,10 +74,11 @@ cd qqwry2mmdb-master
 ----  
 -----  
              
------------以下是PT Nexus的mmdb识别问题，与主题ip库合并无关-----------
+-----------以下是PT Nexus的mmdb识别问题，与主题ip库合并无关-----------  
+
 折腾PT站 xiaomlove/nexusphp时，ip识别用的是mmdb。然而加载自定义*.mmdb时会出现一些问题，日志显示  
 ```production.ERROR /nexusphp/include/functions.php:5887 {closure} The city method cannot be used to open a userqqwry database#0 /nexusphp/vendor/geoip2/geoip2/src/Database/Reader.php(231): GeoIp2\Database\Reader->getRecord()```
-原因是，默认加载mmdb文件为MaxMind的city类型，也就是上面官方的GeoLite2-City.mmdb。php有功能会检测mmdb的info段的datebase值必须为'GeoIP2-City。其他的'GeoIP2-Country'或自定义都不行。  
+原因是，默认加载mmdb文件为MaxMind的city类型，也就是上面官方的GeoLite2-City.mmdb。php有功能会检测mmdb的info段的database_type值必须为'GeoIP2-City'。其他的'GeoIP2-Country'或自定义都不行。  
 我是改了文件 /nexusphp/vendor/geoip2/geoip2/src/Database/Reader.php 。删除了一段。
 ```
             $method = lcfirst((new \ReflectionClass($class))->getShortName());
