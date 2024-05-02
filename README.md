@@ -1,8 +1,8 @@
 # qqwryMGeoip_mmdb
-（qqwry ip CN库）与（MaxMind GeoLite）合并，扔relase了。
+（qqwry ip CN库）与（MaxMind GeoLite）合并，扔release了。
 
   合并了(qqwry-纯真 IP库CN段)和(MaxMind GeoLite2.mmdb)的IP数据库。也就是：提取了qqwry的CN段覆盖MaxMind的IP库。最终格式为MaxMind的*.mmdb  
-因为感觉qqwry的海外IP不准，而MaxMind的中国IP不准。才这么搞。(再之前因为折腾NexusPHP PT站，新版本网站用的是mmdb识别IP地址。)
+因为感觉qqwry的海外IP不准，而MaxMind的中国IP不准。才这么搞。(再之前因为折腾NexusPHP PT站，新版本网站识别IP地址 用的是mmdb。)
 
 源ip库文件：  
 qqwary.dat，2024年4月24日版。MD5: c3ac7c7606bdfd83f31907f060b7b607  
@@ -57,7 +57,7 @@ GeoLite2-Country.mmdb 2024年5月01日版 MD5: b72b6db6d4b10ddec23daccd06145f90
 
 完成。
 -    
------附录--------leolovenet/qqwry2mmdb的环境安装方式----------------
+-----附录----第一步的----leolovenet/qqwry2mmdb的环境安装方式----------------
 ```
 apt update
 apt install git curl wget unzip gcc make perl libmaxmind-db-writer-perl 
