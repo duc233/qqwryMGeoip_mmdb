@@ -40,7 +40,9 @@ GeoLite2-Country.mmdb 2024年5月01日版 MD5: b72b6db6d4b10ddec23daccd06145f90
      
      4.2 再用EmEditor使用通配符，查找+提取为新文件。通配符:
      
-          ```.*北京.*|.*天津.*|.*河北.*|.*山西.*|.*内蒙古.*|.*辽宁.*|.*吉林.*|.*黑龙江.*|.*上海.*|.*江苏.*|.*浙江.*|.*安徽.*|.*福建.*|.*江西.*|.*山东.*|.*河南.*|.*湖北.*|.*湖南.*|.*广东.*|.*广西.*|.*海南.*|.*重庆.*|.*四川.*|.*贵州.*|.*云南.*|.*西藏.*|.*陕西.*|.*甘肃.*|.*青海.*|.*宁夏.*|.*新疆.*|.*中国.*```
+          
+          .*北京.*|.*天津.*|.*河北.*|.*山西.*|.*内蒙古.*|.*辽宁.*|.*吉林.*|.*黑龙江.*|.*上海.*|.*江苏.*|.*浙江.*|.*安徽.*|.*福建.*|.*江西.*|.*山东.*|.*河南.*|.*湖北.*|.*湖南.*|.*广东.*|.*广西.*|.*海南.*|.*重庆.*|.*四川.*|.*贵州.*|.*云南.*|.*西藏.*|.*陕西.*|.*甘肃.*|.*青海.*|.*宁夏.*|.*新疆.*|.*中国.*
+     
      
      4.3 恢复为json。查找替换标记的回车符RRR233为\n。得到qqwryCN.json
 
@@ -78,7 +80,7 @@ cd qqwry2mmdb-master
 
 折腾PT站 xiaomlove/nexusphp时，ip识别用的是mmdb。然而加载自定义*.mmdb时会出现一些问题，日志显示  
 ```production.ERROR /nexusphp/include/functions.php:5887 {closure} The city method cannot be used to open a userqqwry database#0 /nexusphp/vendor/geoip2/geoip2/src/Database/Reader.php(231): GeoIp2\Database\Reader->getRecord()```
-原因是，默认加载mmdb文件为MaxMind的city类型，也就是上面官方的GeoLite2-City.mmdb。php有功能会检测mmdb的info段的database_type值必须为'GeoIP2-City'。其他的'GeoIP2-Country'或自定义都不行。  
+原因是，默认加载mmdb文件为MaxMind的city类型，也就是上面官方的GeoLite2-City.mmdb。php有功能会检测mmdb的info段的database_type值必须为'GeoIP2-City'。'GeoIP2-Country'或自定义都不行。  
 我是改了文件 /nexusphp/vendor/geoip2/geoip2/src/Database/Reader.php 。删除了一段。
 ```
             $method = lcfirst((new \ReflectionClass($class))->getShortName());
