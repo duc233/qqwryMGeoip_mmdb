@@ -1,5 +1,5 @@
 # qqwryMGeoip_mmdb
-（qqwry ip CN库）与（MaxMind GeoLite）合并
+（qqwry ip CN库）与（MaxMind GeoLite）合并，扔relase了。
 
   合并了(qqwry-纯真 IP库CN段)和(MaxMind GeoLite2.mmdb)的IP数据库。也就是：提取了qqwry的CN段覆盖MaxMind的IP库。最终格式为MaxMind的*.mmdb  
 因为感觉qqwry的海外IP不准，而MaxMind的中国IP不准。才这么搞。(再之前因为折腾NexusPHP PT站，新版本网站用的是mmdb识别IP地址。)
@@ -14,14 +14,13 @@ GeoLite2-Country.mmdb 2024年5月01日版 MD5: b72b6db6d4b10ddec23daccd06145f90
 
 1. qqwry转mmdb，工具qqwry2mmdb，https://github.com/leolovenet/qqwry2mmdb 。运行这个我用的Linux环境
    由于MaxMind官方软件更新，新版本不支持（MaxMind::DB::Writer::Tree）指令。需要安装旧版软件。
-   需要按照qqwry2mmdb的安装再执行以下命令，安装旧版Writer。
-```cpanm http://www.cpan.org/authors/id/M/MA/MAXMIND/MaxMind-DB-Writer-0.300003.tar.gz```
+   需要按照qqwry2mmdb的安装再执行以下命令，安装旧版Writer。文章末尾有安装方式，或者使用Docker。
 
    做成了Docker:
    ```
    docker run -itd -p 11451:11451 --name q2m-ok2 gduc233/qqwry2mmdb
    ``` 
-   ssh-Port:11451 ID/Pass:root/114514。脚本在目录/home/qqwry2mmdb*下
+   ssh-Port:11451 用户/密码:root/114514。转换脚本在目录/home/qqwry2mmdb*下
    转换命令perl qqwry2mmdb.pl qqwry.dat
 得到qqwry.mmdb
   
@@ -30,10 +29,10 @@ GeoLite2-Country.mmdb 2024年5月01日版 MD5: b72b6db6d4b10ddec23daccd06145f90
 
 4. qqwry.json合并入GeoLite2.mmdb，工具mmedit https://github.com/iglov/mmdb-edito  运行这个我用的Win10环境
 
-  首先需要检查一下qqwry.json是否符合工具识别的json格式，qqwry.json应该需要修改一些：
-  运行下行命令，json不符合的地方，mmedit会给出提示。参照mmedit主页的mmdb-editor/testdata/dataset.json，的标准格式，进行修改qqwry.json。
+    首先需要检查一下qqwry.json是否符合工具识别的json格式，qqwry.json应该需要修改一些：
+    运行下行命令，json不符合的地方，mmedit会给出提示。参照mmedit主页的mmdb-editor/testdata/dataset.json，的标准格式，进行修改qqwry.json。
   
-  ```mmdb-editor-windows-amd64.exe -d qqwry.json -i GeoLite2.mmdb -o merge.mmdb```
+    ```mmdb-editor-windows-amd64.exe -d qqwry.json -i GeoLite2.mmdb -o merge.mmdb```
   
   4. 提取中国IP，我用的UltraEditor和EmEditor。
   
