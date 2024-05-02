@@ -1,5 +1,5 @@
 # qqwryMGeoip_mmdb
-（qqwry ip CN库）与（MaxMind GeoLite）合并，扔release了。
+（纯真 qqwry.dat ip库 CN段）与（MaxMind GeoLite.mmdb）合并，扔release了。
 
   合并了(qqwry-纯真 IP库CN段)和(MaxMind GeoLite2.mmdb)的IP数据库。也就是：提取了qqwry的CN段覆盖MaxMind的IP库。最终格式为MaxMind的*.mmdb  
 因为感觉qqwry的海外IP不准，而MaxMind的中国IP不准。才这么搞。(再之前因为折腾NexusPHP PT站，新版本网站识别IP地址 用的是mmdb。)
